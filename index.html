@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Valentine Form</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Love Survey</h1>
+      <form action="https://formsubmit.co/panovnikola5@gmail.com" method="POST">
+        <label for="name">Full Name:</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Full Name"
+          required
+        />
+
+        <label for="email">Email:</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Email"
+          required
+        />
+
+        <label>Will you be my Valentine?</label>
+        <div class="radio-group">
+          <input type="radio" id="yes" name="valentine" value="yes" required />
+          <label for="yes">Yes</label>
+
+          <input type="radio" id="no" name="valentine" value="no" required />
+          <label for="no">No</label>
+        </div>
+
+        <label for="love-meter">How much do you love me?</label>
+        <input
+          type="range"
+          id="love-meter"
+          name="love-meter"
+          min="0"
+          max="100"
+          step="10"
+          value="100"
+          oninput="updateLoveValue()"
+        />
+        <span id="love-value">100</span>%
+
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+
+    <script>
+      function updateLoveValue() {
+        let loveMeter = document.getElementById("love-meter");
+        let loveValue = document.getElementById("love-value");
+        loveValue.innerText = loveMeter.value;
+      }
+    </script>
+  </body>
+</html>
